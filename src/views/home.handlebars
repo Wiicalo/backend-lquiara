@@ -1,0 +1,16 @@
+<h1>Listado de Productos de Domótica</h1>
+
+<div id="product-list">
+    {{#if products.length}}
+        <ul>
+            {{#each products}}
+                <li>
+                    <strong>{{this.titulo}}</strong> (ID: {{this.id}}) - {{this.descripcion}}
+                    <br>Precio: ${{this.precio}} | Cantidad: {{this.cantidad}} | Categoría: {{this.categoria}}
+                </li>
+            {{/each}}
+        </ul>
+    {{else}}
+        <p>No hay productos disponibles.</p>
+    {{/if}}
+</div>
