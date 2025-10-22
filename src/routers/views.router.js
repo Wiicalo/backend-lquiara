@@ -15,7 +15,6 @@ router.get('/', async (req, res) => {
         const products = await productManager.getProducts();
         res.render('home', { products: products });
     } catch (error) {
-        
         res.status(500).render('error', { message: 'Error al cargar los productos en home.', error: error.message });
     }
 });
@@ -26,7 +25,6 @@ router.get('/realtimeproducts', async (req, res) => {
         const products = await productManager.getProducts();
         res.render('realTimeProducts', { products: products });
     } catch (error) {
-         
         res.status(500).render('error', { message: 'Error al cargar los productos en tiempo real.', error: error.message });
     }
 });

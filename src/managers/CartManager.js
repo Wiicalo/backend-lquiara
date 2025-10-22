@@ -1,6 +1,7 @@
 import fs from 'fs';
 import ProductManager from './ProductManager.js';
 
+
 class CartManager {
     constructor(path, productsPath) {
         this.path = path;
