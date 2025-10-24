@@ -1,16 +1,39 @@
-<h1>Listado de Productos de Domótica</h1>
+<h1>Tienda de Domótica - Catálogo</h1>
 
-<div id="product-list">
+<div class="product-grid">
     {{#if products.length}}
-        <ul>
-            {{#each products}}
-                <li>
-                    <strong>{{this.titulo}}</strong> (ID: {{this.id}}) - {{this.descripcion}}
-                    <br>Precio: ${{this.precio}} | Cantidad: {{this.cantidad}} | Categoría: {{this.categoria}}
-                </li>
-            {{/each}}
-        </ul>
+        {{#each products}}
+            <div class="product-card">
+                <h2>{{this.titulo}}</h2>
+                <p>{{this.descripcion}}</p>
+                <p>Precio: <strong>${{this.precio}}</strong></p>
+                <p>Categoría: {{this.categoria}} | Stock: {{this.cantidad}}</p>
+
+               
+                <a href="/products/{{this._id}}" class="btn-detail">Ver Detalles</a>
+
+                
+                <button class="btn-add-cart" data-product-id="{{this._id}}">Agregar al Carrito</button>
+            </div>
+        {{/each}}
     {{else}}
-        <p>No hay productos disponibles.</p>
+        <p>No se encontraron productos con los filtros aplicados.</p>
+    {{/if}}
+</div>
+
+
+<div class="pagination">
+    {{#if hasPrevPage}}
+        <a href="{{prevLink}}" class="page-link">Anterior</a>
+    {{else}}
+        <span class="page-link disabled">Anterior</span>
+    {{/if}}
+
+    <span class="page-info">Página {{page}} de {{totalPages}}</span>
+
+    {{#if hasNextPage}}
+        <a href="{{nextLink}}" class="page-link">Siguiente</a>
+    {{else}}
+        <span class="page-link disabled">Siguiente</span>
     {{/if}}
 </div>

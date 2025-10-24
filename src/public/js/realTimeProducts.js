@@ -29,6 +29,7 @@ function renderProducts(products) {
     }
 }
 
+
 socket.on('updateProducts', (products) => {
     console.log('Productos actualizados recibidos por socket:', products);
     renderProducts(products);
@@ -56,25 +57,8 @@ if (addProductForm) {
             
         };
 
-        if (
-            isNaN(newProduct.precio) || newProduct.precio <= 0 || 
-            isNaN(newProduct.cantidad) || newProduct.cantidad < 0 || 
-            !newProduct.categoria
-        ) {
-            alert('Por favor, completa todos los campos correctamente.');
-            return;
-        }
-
         socket.emit('addProduct', newProduct);
-
-        socket.on('addProductSuccess', () => {
-            addProductForm.reset();
-            alert('Producto agregado con éxito.');
-        });
-
-        socket.on('addProductError', (error) => {
-            alert(`Error al agregar el producto: ${error.message}`);
-        });
+        addProductForm.reset();
     });
 }
 
@@ -91,16 +75,6 @@ if (deleteProductForm) {
         }
 
         socket.emit('deleteProduct', productIdToDelete);
-
-        socket.on('deleteProductSuccess', () => {
-            deleteProductForm.reset();
-            alert('Producto eliminado con éxito.');
-        });
-
-        socket.on('deleteProductError', (error) => {
-            alert(`Error al eliminar el producto: ${error.message}`);
-        });
-        socket.emit('deleteProduct', productIdToDelete);
         deleteProductForm.reset();
     });
 }
@@ -109,9 +83,9 @@ if (deleteProductForm) {
 document.addEventListener('DOMContentLoaded', () => {
     const initialProductsElement = document.getElementById('productListUl');
     if (initialProductsElement && initialProductsElement.children.length > 0) {
-       
+      
     } else {
-       
+        
         const realTimeProductList = document.getElementById('realTimeProductList');
         if (realTimeProductList && !productListUl) { 
              realTimeProductList.innerHTML = '<p>No hay productos en tiempo real.</p>';

@@ -17,7 +17,7 @@ const app = express();
 const PORT = 8080;
 
 
-const productManager = new ProductManager(path.join(__dirname, './db/products.json'));
+const productManager = new ProductManager();
 
 
 app.engine('handlebars', engine());

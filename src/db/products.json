@@ -3,7 +3,7 @@
         {
           "id": 1,
           "titulo": "Foco Inteligente WiFi",
-          "descripcion": "Foco LED RGB con control WiFi desde app móvil.",
+          "description": "Foco LED RGB con control WiFi desde app móvil.",
           "codigo": "FOCO001",
           "precio": 19.99,
           "status": true,
@@ -14,7 +14,7 @@
         {
           "id": 2,
           "titulo": "Sensor de Humedad",
-          "descripcion": "Sensor WiFi para medir humedad y temperatura en interiores.",
+          "description": "Sensor WiFi para medir humedad y temperatura en interiores.",
           "codigo": "SH001",
           "precio": 35.50,
           "status": true,
@@ -25,7 +25,7 @@
         {
           "id": 3,
           "titulo": "Enchufe Inteligente",
-          "descripcion": "Enchufe con control remoto y temporizador, compatible con asistentes de voz.",
+          "description": "Enchufe con control remoto y temporizador, compatible con asistentes de voz.",
           "codigo": "ENC002",
           "precio": 29.00,
           "status": true,

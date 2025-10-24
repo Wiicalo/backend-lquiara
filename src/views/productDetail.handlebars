@@ -1,0 +1,14 @@
+<h1>Detalles del Producto: {{product.titulo}}</h1>
+
+<div class="product-details">
+    <p><strong>Descripción:</strong> {{product.descripcion}}</p>
+    <p><strong>Código:</strong> {{product.codigo}}</p>
+    <p><strong>Precio:</strong> <h1>${{product.precio}}</h1></p>
+    <p><strong>Categoría:</strong> {{product.categoria}}</p>
+    <p><strong>Disponibilidad:</strong> {{#if product.status}} En Stock {{else}} Fuera de Stock {{/if}}</p>
+    <p><strong>Stock Disponible:</strong> {{product.cantidad}}</p>
+
+    <button class="btn-add-cart-large" data-product-id="{{product._id}}">Agregar al Carrito</button>
+    <br><br>
+    <a href="/" class="btn-back">← Volver al Catálogo</a>
+</div>
