@@ -8,12 +8,15 @@ import productsRouter from './routers/products.router.js';
 import cartsRouter from './routers/carts.router.js';
 import viewsRouter from './routers/views.router.js';
 import ProductManager from './managers/ProductManager.js'; 
+import { connectDB } from './db/database.js'; 
+
 
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
+connectDB();
 const PORT = 8080;
 
 
